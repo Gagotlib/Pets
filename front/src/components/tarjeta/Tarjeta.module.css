@@ -1,0 +1,45 @@
+.tarjeta {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    margin: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .tarjeta:hover {
+    transform: translateY(-5px);
+  }
+  
+  .foto {
+    width: calc(100% - 16px); 
+    height: auto;
+    margin: 8px;
+    margin-bottom: 0px; 
+    border-radius: 2px;
+    box-sizing: border-box; 
+  }
+  
+  .info {
+    padding: 16px;
+    text-align: left;
+  }
+  
+  .nombre {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  .direccion, .genero, .edad {
+    margin: 8px 0;
+    font-size: 1em;
+  }
+
+  .lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  

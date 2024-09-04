@@ -1,0 +1,108 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 2rem 1rem;
+	background-image: url('/mascota-home.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 1;
+	min-height: 50vh;
+	@media (max-width: 768px) {
+		min-height: 100vh;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+.container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad aquí */
+	z-index: -1;
+}
+
+.title {
+	color: var(--color-secundario);
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+	text-wrap: wrap;
+	max-width: 100%;
+	text-align: center;
+	@media screen and (max-width: 768px) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.subtitle {
+	display: flex;
+	color: var(--color-secundario);
+	font-size: 1.5rem;
+	text-wrap: wrap;
+	max-width: 80%;
+	text-align: center;
+		@media screen and (max-width: 768px) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+.text {
+	display: flex;
+	color: var(--color-secundario);
+	font-size: 1.2rem;
+	text-wrap: wrap;
+	max-width: 80%;
+	text-align: center;
+
+}
+
+.buttonsContainer {
+	display: flex;
+	gap: 1rem;
+	max-width: 80%;
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		
+	}
+}
+
+.buttonPerdi {
+	background: var(--color-secundario);
+	color: var(--color-primario);
+	padding: 1rem 2rem;
+	border-width: 2px;
+	border-radius: 5rem;
+	/* border-color: var(--color-primario); */
+	font-size: 1rem;
+		font-size: 1.4rem;
+	text-decoration: none;
+	text-align: center;
+}
+
+.buttonPerdi:hover {
+	cursor: pointer;
+}
+
+.buttonEncontre {
+	background: var(--color-primario);
+	color: var(--color-secundario);
+	padding: 1rem 2rem;
+	border-width: 2px;
+	border-radius: 5rem;
+	/* border-color: var(--color-secundario); */
+	font-size: 1.4rem;
+	text-decoration: none;
+	text-align: center;
+}
+
+.buttonEncontre:hover {
+	cursor: pointer;
+}

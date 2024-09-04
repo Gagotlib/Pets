@@ -1,0 +1,86 @@
+/* Estilos para la barra de navegación */
+.navbar {
+	background-color: var(--color-secundario);
+	color: var(--color-primario);
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1rem;
+	box-shadow: 0px 2px 14px grey;
+	position: relative;
+	z-index: 10;
+}
+
+/* Título de la aplicación */
+.navbarTitle {
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--color-primario);
+}
+
+/* Estilos para la lista de navegación en versión de escritorio */
+.navbarList {
+	display: flex;
+	list-style: none;
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+.navbarList li {
+	margin: 0;
+}
+
+.navbarList a {
+	text-decoration: none;
+	color: var(--color-primario);
+	font-size: 20px;
+	font-weight: 400;
+	padding: 5px 10px;
+	border-radius: 10px;
+}
+
+.navbarList a:hover {
+	color: grey;
+}
+
+/* Botón de hamburguesa solo visible en versión móvil */
+.hamburger {
+	display: none;
+	font-size: 1.5rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--color-primario);
+}
+
+/* Estilos específicos para versión móvil */
+@media (max-width: 768px) {
+	.navbarList {
+		display: none;
+		flex-direction: column;
+		background-color: var(--color-secundario);
+		position: absolute;
+		top: 3rem;
+		right: 0;
+		width: 200px;
+		height: auto;
+		justify-content: start;
+		align-items: center;
+		padding: 1rem;
+		box-shadow: -2px 0 14px grey;
+		transition: transform 0.3s ease-in-out;
+		transform: translateX(100%);
+	}
+
+	.navbarListOpen {
+		transform: translateX(0);
+		display: flex;
+	}
+
+	.hamburger {
+		display: block;
+	}
+}

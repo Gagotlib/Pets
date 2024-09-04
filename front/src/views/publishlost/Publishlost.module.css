@@ -1,0 +1,83 @@
+.section {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--color-primario);
+	background-color: var(--color-secundario);
+  padding: 1rem;
+}
+
+.title {
+	font-size: 3rem;
+	/* margin-bottom: 1rem; */
+	margin-bottom: 0;
+  text-align: center;
+}
+.subtitle {
+  font-size: 1.5rem;
+	margin-bottom: 0;
+  text-align: center;
+}
+
+.formContainer {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 3rem;
+  margin: 0;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+	/* max-width: 24rem; */
+	margin: 0 ;
+	gap: 1rem;
+}
+
+.input {
+	background-color: var(--color-secundario);
+	border: 2px solid var(--color-primario);
+	color: var(--color-primario);
+	font-size: 0.875rem;
+	border-radius: 1rem;
+	display: block;
+	width: calc(100% - 0.1rem); 
+	padding: 1rem;
+	font-size: 1rem;
+	box-sizing: border-box; 
+}
+
+.buttonContainer {
+  width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+  gap: 1rem;
+}
+
+.buttonSend {
+	color: var(--color-secundario);
+	background-color: var(--color-primario);
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.buttonClear {
+	color: white;
+	background-color: red;
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.label {
+  display: block;
+  font-weight: normal;
+  color: var(--color-primario); 
+    font-size: 1rem;
+    text-align: center;
+}
