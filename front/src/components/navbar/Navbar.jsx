@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Navbar.module.css'
+import logoNav from '/src/assets/PetRescue-logo-nav.png'
 
 function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -13,7 +14,9 @@ function Navbar() {
 		<nav className={styles.navbar}>
 			<div className={styles.navbarTitle}>
 				<Link to='/' className={styles.navbarTitle}>
-					Mi App
+					<img
+					className={styles.logoNav}
+					src={logoNav} alt="logo Pet Rescue" />
 				</Link>
 			</div>
 			<button className={styles.hamburger} onClick={toggleMobileMenu}>

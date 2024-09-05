@@ -11,6 +11,9 @@
 	position: relative;
 	z-index: 10;
 }
+.logoNav{
+width: 200px;
+}
 
 /* Título de la aplicación */
 .navbarTitle {
