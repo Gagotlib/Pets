@@ -27,7 +27,7 @@ export default function Register() {
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.inputGroup}>
 						<label htmlFor='username' id='username' className={styles.label}>
-							Username
+							Nombre de usuario
 						</label>
 						<input className={styles.input} type='text' name='username' value={registerData.username} onChange={handleChange} placeholder='Nombre de Usuario' />
 					</div>
@@ -39,7 +39,7 @@ export default function Register() {
 					</div>
 					<div className={styles.inputGroup}>
 						<label htmlFor='password' id='password' className={styles.label}>
-							Password
+							Contraseña
 						</label>
 						<input className={styles.input} type='password' name='password' value={registerData.password} onChange={handleChange} placeholder='Contraseña' />
 					</div>
