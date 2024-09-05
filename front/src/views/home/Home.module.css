@@ -106,3 +106,35 @@
 .buttonEncontre:hover {
 	cursor: pointer;
 }
+
+
+.filterContainer {
+	display: flex;
+	justify-content:flex-start;
+	align-items: center;
+	margin: 20px 20px;
+	width: 100%;
+	text-align: center;
+}
+
+.selectFiltro {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	font-size: 1.2rem;
+	margin-left: 10px;
+	color: var(--color-primario);
+	background-color: var(--color-secundario);
+}
+
+.selectFiltro:focus {
+	outline: none;
+	border-color: var(--color-secundario);
+}
+
+h2 {
+	color: var(--color-secundario);
+}
+.tarjetasContainer{
+	padding: 0.5rem 1rem;
+}
