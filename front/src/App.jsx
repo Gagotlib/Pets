@@ -9,6 +9,7 @@ import Register from './views/register/Register'
 import Publishfound from './views/publishfound/Publishfound'
 import Publishlost from './views/publishlost/Publishlost'
 import Footer from './components/footer/Footer'
+import Contact from './views/Contact/Contact'
 
 function App() {
 	return (
@@ -21,9 +22,10 @@ function App() {
 				<Route path='/register' element={<Register />} />
 				<Route path='/publishfound' element={<Publishfound />} />
 				<Route path='/publishlost' element={<Publishlost />} />
+				<Route path='/contact' element={<Contact />} />
 				<Route path='/*' element={<ErrorPage />} />
 			</Routes>
-			<Footer/>
+			<Footer />
 		</>
 	)
 }

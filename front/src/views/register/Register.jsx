@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import styles from "./Register.module.css"
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function Register() {
+	const navigate = useNavigate()
 	const [registerData, setRegisterData] = useState({
 		username: '',
 		email: '',
@@ -17,7 +21,21 @@ export default function Register() {
 	}
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		console.log('registerData', registerData)
+	 Swal.fire({
+			title: '<strong>Registro exitoso</strong>',
+			icon: 'info',
+			showCloseButton: true,
+			showCancelButton: false,
+			focusConfirm: false,
+			confirmButtonText: `
+              Salir
+            `,
+			confirmButtonAriaLabel: 'Thumbs up, great!',
+			text: `Usuario: ${registerData.username}`,
+			willClose: () => {
+				navigate('/')
+			}
+		})
 	}
 
 	return (
@@ -27,7 +45,7 @@ export default function Register() {
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.inputGroup}>
 						<label htmlFor='username' id='username' className={styles.label}>
-							Nombre de usuario
+							Usuario
 						</label>
 						<input className={styles.input} type='text' name='username' value={registerData.username} onChange={handleChange} placeholder='Nombre de Usuario' />
 					</div>

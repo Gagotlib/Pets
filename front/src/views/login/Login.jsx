@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import styles from './Login.module.css'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
+
 // import { Spinner } from "../../components/spiner/Spiner"
 
 export default function Login() {
+const navigate = useNavigate()
 	const [loginData, setLoginData] = useState({
 		email: '',
 		password: ''
@@ -18,7 +22,24 @@ export default function Login() {
 	}
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		console.log('loginData', loginData)
+		Swal.fire({
+			title: '<strong>Login exitoso</strong>',
+			icon: 'info',
+			showCloseButton: true,
+			showCancelButton: false,
+			focusConfirm: false,
+			confirmButtonText: `
+              Salir
+            `,
+			confirmButtonAriaLabel: 'Thumbs up, great!',
+			text: `Usuario: ${loginData.email}`,
+
+			willClose: () => {
+				
+				navigate("/")
+			}
+		})
+
 	}
 
 	return (

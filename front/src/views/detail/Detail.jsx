@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Gallery from '../../components/gallery/Gallery'
 import styles from './Detail.module.css'
 import Swal from 'sweetalert2'

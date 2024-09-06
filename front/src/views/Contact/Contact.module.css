@@ -1,0 +1,71 @@
+.contactView {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	/* margin-top: 5rem; */
+  background-image: url('/mascota-home.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 5rem;
+}
+.contactView::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad aquí */
+	z-index: -1;
+}
+.contactForm {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem;
+	text-align: center;
+	padding: 1rem;
+	width: 60%;
+	font-size: larger;
+
+	button {
+		border-radius: 2rem;
+		font-size: 1rem;
+		padding: 1rem 2rem;
+		color: var(--color-secundario);
+		background-color: var(--color-primario);
+	}
+}
+
+.title {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	color: var(--color-secundario);
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+
+  font-weight: normal;
+  color: var(--color-secundario); 
+    font-size: 1.5rem;
+}
+
+.input {
+  background-color: var(--color-secundario); 
+  border: 2px solid var(--color-primario); 
+  color: var(--color-primario); 
+  font-size: 0.875rem;
+  border-radius: 1rem;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+}
