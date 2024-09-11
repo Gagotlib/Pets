@@ -1,17 +1,21 @@
 .container {
-  height: 100vh;
-  padding-top: 1rem;
-  background-image: url('/mascota-login.jpg');
+	/* height: 100vh; */
+	padding-top: 1rem;
+	background-image: url('/mascota-login.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	position: relative;
 	z-index: 1;
-	min-height: 50vh;
+	min-height: 100vh;
+
 	@media (max-width: 768px) {
 		min-height: 100vh;
 		background-size: cover;
 		background-position: center;
+		padding-top: 0rem;
+		padding-bottom: 3rem;
+
 	}
 }
 .container::before {
@@ -26,64 +30,78 @@
 }
 
 .formContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 5rem;
+	@media screen and (max-width: 768px) {
+		padding-top: 1rem;
+	}
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-    color: var(--color-secundario); 
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: var(--color-secundario);
+	@media screen and (max-width: 768px) {
+		font-size: 1rem;
+	}
 }
 
 .titleSm {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	@media screen and (max-width: 768px) {
+		font-size: 2.5rem;
+	}
 }
 
 .form {
-  max-width: 24rem;
-  margin: 0 auto;
+	max-width: 24rem;
+	margin: 0 auto;
 }
 
 .inputGroup {
-  margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .label {
-  display: block;
-  margin-bottom: 0.5rem;
-
-  font-weight: normal;
-  color: var(--color-secundario); 
-    font-size: 1.5rem;
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: normal;
+	color: var(--color-secundario);
+	font-size: 1.5rem;
+	@media screen and (max-width: 768px) {
+		font-size: 1.2rem;
+	}
 }
 
 .input {
-  background-color: var(--color-secundario); 
-  border: 2px solid var(--color-primario); 
-  color: var(--color-primario); 
-  font-size: 0.875rem;
-  border-radius: 1rem;
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
+	background-color: var(--color-secundario);
+	border: 2px solid var(--color-primario);
+	color: var(--color-primario);
+	font-size: 0.875rem;
+	border-radius: 1rem;
+	display: block;
+	width: 100%;
+	padding: 1rem;
+	font-size: 1rem;
+	@media screen and (max-width: 768px) {
+		width: 85%;
+	}
 }
 
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .button {
-  color: var(--color-secundario);
-  background-color: var(--color-primario);
+	color: var(--color-secundario);
+	background-color: var(--color-primario);
 	padding: 1rem 2rem;
 	border-radius: 2rem;
-    font-size: 1rem;
+	font-size: 1rem;
 }

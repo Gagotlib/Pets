@@ -2,14 +2,21 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 100vh;
-	/* margin-top: 5rem; */
-  background-image: url('/mascota-home.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 1;
-  padding-top: 5rem;
+	/* height: 100vh; */
+	background-image: url('/mascota-home.jpg');
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	z-index: 1;
+	padding-top: 5rem;
+	min-height: 100vh;
+
+	@media screen and (max-width: 768px) {
+		padding-top: 1rem;
+		min-height: 100vh;
+		padding: 0;
+		margin: 0;
+	}
 }
 .contactView::before {
 	content: '';
@@ -34,6 +41,11 @@
 	width: 60%;
 	font-size: larger;
 
+	@media screen and (max-width: 768px) {
+		padding: 0rem;
+		margin: 0rem;
+	}
+	
 	button {
 		border-radius: 2rem;
 		font-size: 1rem;
@@ -41,31 +53,45 @@
 		color: var(--color-secundario);
 		background-color: var(--color-primario);
 	}
+
+
 }
 
 .title {
 	font-size: 3rem;
 	margin-bottom: 1rem;
 	color: var(--color-secundario);
+	@media screen and (max-width: 768px) {
+		font-size: 2.5rem;
+		margin-bottom: 0rem;
+		
+	}
 }
 
 .label {
-  display: block;
-  margin-bottom: 0.5rem;
-
-  font-weight: normal;
-  color: var(--color-secundario); 
-    font-size: 1.5rem;
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: normal;
+	color: var(--color-secundario);
+	font-size: 1.5rem;
+	@media screen and (max-width: 768px) {
+		font-size: 1.2rem;
+		
+	}
 }
 
 .input {
-  background-color: var(--color-secundario); 
-  border: 2px solid var(--color-primario); 
-  color: var(--color-primario); 
-  font-size: 0.875rem;
-  border-radius: 1rem;
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
+	background-color: var(--color-secundario);
+	border: 2px solid var(--color-primario);
+	color: var(--color-primario);
+	font-size: 0.875rem;
+	border-radius: 1rem;
+	display: block;
+	width: 100%;
+	padding: 1rem;
+
+	@media screen and (max-width: 768px) {
+		width: 80%;
+		
+	}
 }

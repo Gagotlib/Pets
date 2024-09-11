@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './Footer.module.css'
 import logo from '/src/assets/PetRescue-logo-Footer.png'
 import { Link } from 'react-router-dom'
