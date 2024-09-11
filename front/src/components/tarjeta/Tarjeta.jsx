@@ -6,6 +6,7 @@ const Tarjeta = ({ fotos, nombre, direccion, genero, edad, id}) => {
   const imagen = fotos.length > 0 ? fotos[0] : '/perro.jpg'; // Imagen por defecto si no hay fotos
 
   return (
+
 		<Link to={`/detail/${id}`} className={styles.tarjeta}>
 		
 				<img src={imagen} alt={nombre} className={styles.foto} />
@@ -24,6 +25,7 @@ const Tarjeta = ({ fotos, nombre, direccion, genero, edad, id}) => {
 			
 		</Link>
 	)
+
 };
 
 

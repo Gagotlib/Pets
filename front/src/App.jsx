@@ -22,10 +22,10 @@ function App() {
 				<Route path='/register' element={<Register />} />
 				<Route path='/publishfound' element={<Publishfound />} />
 				<Route path='/publishlost' element={<Publishlost />} />
-				<Route path='/contact' element={<Contact />} />
+				<Route  path='/contact' element={<Contact />} />
 				<Route path='/*' element={<ErrorPage />} />
 			</Routes>
-			<Footer />
+			<Footer/>
 		</>
 	)
 }

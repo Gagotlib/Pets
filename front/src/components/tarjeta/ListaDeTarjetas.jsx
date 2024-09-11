@@ -8,10 +8,10 @@ const ListaDeTarjetas = ({ publicacions }) => {
 				<Tarjeta
 					key={index}
 					fotos={publicacion.fotos}
-					nombre={publicacion.nombre}
+					nombre={publicacion.mascota_nombre}
 					direccion={publicacion.zona}
-					genero={publicacion.mascotaEspecie}
-					edad={publicacion.mascotaEdad}
+					genero={publicacion.mascota_especie}
+					edad={publicacion.mascota_edad}
 					id={publicacion.id}
 				/>
 			))}

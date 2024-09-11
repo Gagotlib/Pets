@@ -1,3 +1,7 @@
+.main {
+	min-height: 100vh;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -12,6 +16,7 @@
 	position: relative;
 	z-index: 1;
 	min-height: 50vh;
+
 	@media (max-width: 768px) {
 		min-height: 100vh;
 		background-size: cover;
@@ -33,6 +38,7 @@
 .title {
 	color: var(--color-secundario);
 	font-size: 2.5rem;
+
 	margin-bottom: 2rem;
 	text-wrap: wrap;
 	max-width: 100%;

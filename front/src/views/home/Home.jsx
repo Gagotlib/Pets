@@ -1,31 +1,33 @@
 // import React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Home.module.css'
 import ListaDeTarjetas from '../../components/tarjeta/ListaDeTarjetas'
-import { publicaciones } from '../../helpers/publicaciones.mock'
+// import { publicaciones } from '../../helpers/publicaciones.mock'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Home() {
-	// const posteos = axios.get(rutaasdasdasd/posts)
+	const [publicaciones, setPublicaciones] = useState([])
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios.get('http://localhost:3000/api/v1/publications/all')
+			console.log(response.data)
+			setPublicaciones(response.data)
+		}
 
-	/*	//lista iterada de animales
-	const animales = Array.from({ length: 10 }, () => ({
-		foto: '/perro.jpg',
-		nombre: 'Dubi',
-		direccion: 'Calle 123, Encarnacion',
-		genero: 'Macho',
-		edad: '5 años'
-	}))
-*/
+		fetchData()
+	}, [])
+
+
 	// Estado para manejar la categoria seleccionada
 	const [filtro, setFiltro] = useState('dueños')
 
 	// Filtrar segun la categoria seleccionada
 	const mascotasFiltradas = publicaciones.filter((publicacion) => {
 		if (filtro === 'dueños') {
-			return publicacion.publicaDueño && !publicacion.rescatada
+			return publicacion.publica_duenio && !publicacion.rescatada
 		} else if (filtro === 'otros') {
-			return !publicacion.publicaDueño && !publicacion.rescatada
+			return !publicacion.publica_duenio && !publicacion.rescatada
 		} else if (filtro === 'rescatadas') {
 			return publicacion.rescatada
 		}
@@ -33,7 +35,7 @@ function Home() {
 	})
 
 	return (
-		<main>
+		<main className={styles.main}>
 			<div className={styles.container}>
 				<h1 className={styles.title}>Bienvenido a Pet Rescue!</h1>
 				<p className={styles.subtitle}>¡Tu comunidad para reunir mascotas perdidas y encontradas! </p>
