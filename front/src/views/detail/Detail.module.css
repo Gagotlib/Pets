@@ -1,35 +1,34 @@
-h1 {
+/* h1 {
 	color: var(--color-primario);
-}
-
+} */
+/* 
 h2 {
 	color: var(--color-primario);
-}
+} */
 
-.bodyDetail {
+/* .bodyDetail {
 	margin-top: 50px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	min-height: 100vh;
-}
+} */
 
-.galleryContainer {
+/* .galleryContainer {
 	width: 20vw;
 	background-color: rgb(204, 204, 204);
 }
 
 .galleryAndDescription {
 	display: flex;
-}
+} */
 
-.buttonContact {
+/* .buttonContact {
 	background: var(--color-primario);
 	color: white;
 	padding: 1rem 2rem;
 	border-width: 2px;
 	border-radius: 5rem;
-	/* border-color: var(--color-secundario); */
 	font-size: 1rem;
 }
 
@@ -39,4 +38,70 @@ h2 {
 	align-items: center;
 
 	margin-left: 50px;
+} */
+/* @import "react-image-gallery/styles/css/image-gallery.css"; */
+/* Container */
+.container {
+	display: flex;
+	margin: 20px;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	@media screen and (max-width: 768px) {
+		margin:0px;
+		margin-top: 1rem;
+	}
+}
+
+/* Card */
+.customCard {
+
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		align-items: center;
+	}
+
+}
+
+/* Column for Image */
+.col4 {
+	display: flex;
+	width: 50%;
+	height: 50%;
+}
+
+/* Column for Content */
+.col8 {
+	/* display: flex;
+	flex-direction: column; */
+
+}
+
+
+
+/* Card Body */
+.cardBody {
+	padding: 16px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.cardTitle {
+	font-size: 1.5rem;
+	margin-bottom: 8px;
+}
+
+.contactButton {
+	background: var(--color-primario);
+	color: var(--color-secundario);
+	padding: 1rem 2rem;
+	border-width: 2px;
+	border-radius: 5rem;
+	font-size: 1rem;
 }

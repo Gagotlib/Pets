@@ -5,19 +5,23 @@ import ListaDeTarjetas from '../../components/tarjeta/ListaDeTarjetas'
 // import { publicaciones } from '../../helpers/publicaciones.mock'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Spiner from '../../components/spiner/Spiner'
+import { BASE_URL } from '../../envs'
 
 function Home() {
 	const [publicaciones, setPublicaciones] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
+
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await axios.get('http://localhost:3000/api/v1/publications/all')
+			const response = await axios.get(`${BASE_URL}/all`)
 			console.log(response.data)
 			setPublicaciones(response.data)
+			setIsLoading(false)
 		}
 
 		fetchData()
 	}, [])
-
 
 	// Estado para manejar la categoria seleccionada
 	const [filtro, setFiltro] = useState('dueños')
@@ -28,10 +32,12 @@ function Home() {
 			return publicacion.publica_duenio && !publicacion.rescatada
 		} else if (filtro === 'otros') {
 			return !publicacion.publica_duenio && !publicacion.rescatada
-		} else if (filtro === 'rescatadas') {
-			return publicacion.rescatada
 		}
 		return []
+	})
+
+	const mascotasEncontradas = publicaciones.filter((publicacion) => {
+		return publicacion.rescatada
 	})
 
 	return (
@@ -56,21 +62,24 @@ function Home() {
 
 			{/* Selector de filtro */}
 			<div className={styles.filterContainer}>
-				<label htmlFor='filtro'>Filtrar por:</label>
-				<select id='filtro' value={filtro} onChange={(e) => setFiltro(e.target.value)} className={styles.selectFiltro}>
-					<option value='dueños'>Mascotas perdidas por sus dueños</option>
-					<option value='otros'>Mascotas encontradas perdidas por otras personas</option>
-					<option value='rescatadas'>Mascotas rescatadas</option>
-				</select>
+				<button className={`${styles.filterButton} ${filtro === 'dueños' ? styles.active : ''}`} onClick={() => setFiltro('dueños')}>
+					Mascotas perdidas
+				</button>
+				<button className={`${styles.filterButton} ${filtro === 'otros' ? styles.active : ''}`} onClick={() => setFiltro('otros')}>
+					Mascotas encontradas
+				</button>
 			</div>
 
 			<div className={styles.tarjetasContainer}>
 				<h2>
-					{filtro === 'dueños' && 'Mascotas perdidas '}
-					{filtro === 'otros' && 'Mascotas encontradas perdidas por otras personas'}
-					{filtro === 'rescatadas' && 'Mascotas Rescatadas'}
+					{filtro === 'dueños' && 'Ayudanos a encontrar a estas mascotas '}
+					{filtro === 'otros' && 'Estas mascotas estan buscando a sus dueños'}
 				</h2>
-				<ListaDeTarjetas publicacions={mascotasFiltradas} />
+				{isLoading ? <Spiner /> : <ListaDeTarjetas publicacions={mascotasFiltradas} />}
+			</div>
+			<div className={styles.tarjetasContainer2}>
+				<h2>Estas mascotas se reencontraron con sus dueños gracias a Pet Rescue!</h2>
+				{isLoading ? <Spiner /> : <ListaDeTarjetas publicacions={mascotasEncontradas} />}
 			</div>
 		</main>
 	)

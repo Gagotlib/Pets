@@ -1,5 +1,6 @@
 .main {
 	min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
 .container {
@@ -7,7 +8,8 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	/* padding: 0rem 1rem; */
+	/* padding: 0rem 1rem;*/
+	padding-top: 2rem;
 	padding-bottom: 1rem;
 	background-image: url('/mascota-home.jpg');
 	background-size: cover;
@@ -16,8 +18,10 @@
 	position: relative;
 	z-index: 1;
 	min-height: 50vh;
-
+	gap:2rem;
+  /* background-color: #f5f5f5; */
 	@media (max-width: 768px) {
+		gap: 1rem;
 		min-height: 100vh;
 		background-size: cover;
 		background-position: center;
@@ -86,8 +90,6 @@
 	padding: 1rem 2rem;
 	border-width: 2px;
 	border-radius: 5rem;
-	/* border-color: var(--color-primario); */
-	font-size: 1rem;
 	font-size: 1.4rem;
 	text-decoration: none;
 	text-align: center;
@@ -103,7 +105,6 @@
 	padding: 1rem 2rem;
 	border-width: 2px;
 	border-radius: 5rem;
-	/* border-color: var(--color-secundario); */
 	font-size: 1.4rem;
 	text-decoration: none;
 	text-align: center;
@@ -115,11 +116,35 @@
 
 .filterContainer {
 	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 	margin: 20px 20px;
-	width: 100%;
-	text-align: center;
+	  background-color: #f5f5f5;
+}
+
+.filterButton {
+	background-color: var(--color-secundario);
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 1s ease;
+	font-size: larger;
+}
+
+.filterButton:hover {
+	background-color: #ccc;
+}
+
+.filterButton.active {
+	background-color: var(--color-primario);
+	color: var(--color-secundario);
+}
+
+.filterButton:focus {
+	outline: none;
 }
 
 .selectFiltro {
@@ -139,7 +164,20 @@
 
 h2 {
 	color: var(--color-secundario);
+	text-align: center;
 }
 .tarjetasContainer {
-	padding: 0.5rem 1rem;
+	/* padding: 0.5rem 1rem; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #dfdfdf;
+	padding-top: 1rem;
+}
+.tarjetasContainer2 {
+	/* padding: 0.5rem 1rem; */
+	padding-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

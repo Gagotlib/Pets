@@ -10,6 +10,9 @@ import Publishfound from './views/publishfound/Publishfound'
 import Publishlost from './views/publishlost/Publishlost'
 import Footer from './components/footer/Footer'
 import Contact from './views/Contact/Contact'
+import Lostposts from './views/lostposts/Lostposts'
+import Foundposts from './views/foundposts/Foundposts'
+import Happyendings from './views/happyendings/Happyendings'
 
 function App() {
 	return (
@@ -18,14 +21,17 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/login' element={<Login />} />
-				<Route path='/detail/:nombre' element={<Detail />} />
+				<Route path='/detail/:id' element={<Detail />} />
 				<Route path='/register' element={<Register />} />
 				<Route path='/publishfound' element={<Publishfound />} />
 				<Route path='/publishlost' element={<Publishlost />} />
-				<Route  path='/contact' element={<Contact />} />
+				<Route path='/lostposts' element={<Lostposts />} />
+				<Route path='/foundposts' element={<Foundposts />} />
+				<Route path='/happyendings' element={<Happyendings />} />
+				<Route path='/contact' element={<Contact />} />
 				<Route path='/*' element={<ErrorPage />} />
 			</Routes>
-			<Footer/>
+			<Footer />
 		</>
 	)
 }

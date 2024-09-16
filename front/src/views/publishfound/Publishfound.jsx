@@ -72,60 +72,61 @@ export default function Publishfound() {
 		}
 	}
 
-
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		setErrors([])
 		formData.usuario_nombre = capitalizeFirstLetter(formData.usuario_nombre)
 		formData.zona = capitalizeFirstLetter(formData.zona)
+		formData.mascota_edad = parseInt(formData.mascota_edad)
+		formData.usuario_telefono = parseInt(formData.usuario_telefono)
 		console.log('enviando formulario', formData)
-				const validationErrors = []
-				const fechaIngresada = new Date(formData.fecha)
-				const fechaActual = new Date()
-				if (fechaIngresada > fechaActual) {
-					validationErrors.push('La fecha no puede ser futura.')
-				} else {
-					// Convertir la fecha a string si es válida
-					formData.fecha = fechaIngresada.toISOString().split('T')[0] // Formato YYYY-MM-DD
-				}
+		const validationErrors = []
+		const fechaIngresada = new Date(formData.fecha)
+		const fechaActual = new Date()
+		if (fechaIngresada > fechaActual) {
+			validationErrors.push('La fecha no puede ser futura.')
+		} else {
+			// Convertir la fecha a string si es válida
+			formData.fecha = fechaIngresada.toISOString().split('T')[0] // Formato YYYY-MM-DD
+		}
 
-				if (!formData.zona.trim()) {
-					validationErrors.push('Debes ingresar la zona donde se perdió la mascota.')
-				}
+		if (!formData.zona.trim()) {
+			validationErrors.push('Debes ingresar la zona donde se perdió la mascota.')
+		}
 
-				if (!formData.mascota_especie) {
-					validationErrors.push('Debes seleccionar el tipo de mascota.')
-				}
+		if (!formData.mascota_especie) {
+			validationErrors.push('Debes seleccionar el tipo de mascota.')
+		}
 
-				if (!formData.mascota_raza.trim()) {
-					validationErrors.push('Debes ingresar la raza de la mascota.')
-				}
+		if (!formData.mascota_raza.trim()) {
+			validationErrors.push('Debes ingresar la raza de la mascota.')
+		}
 
-				if (!formData.mascota_colores.length) {
-					validationErrors.push('Debes ingresar al menos un color de la mascota.')
-				}
+		if (!formData.mascota_colores.length) {
+			validationErrors.push('Debes ingresar al menos un color de la mascota.')
+		}
 
-				if (!formData.mascota_tamanio) {
-					validationErrors.push('Debes seleccionar el tamaño de la mascota.')
-				}
+		if (!formData.mascota_tamanio) {
+			validationErrors.push('Debes seleccionar el tamaño de la mascota.')
+		}
 
-				if (!/^\+?\d{10,15}$/.test(formData.usuario_telefono)) {
-					validationErrors.push('Debes ingresar un número de teléfono válido.')
-				}
+		if (!/^\+?\d{10,15}$/.test(formData.usuario_telefono)) {
+			validationErrors.push('Debes ingresar un número de teléfono válido.')
+		}
 
-				if (!/\S+@\S+\.\S+/.test(formData.usuario_email)) {
-					validationErrors.push('Debes ingresar un correo electrónico válido.')
-				}
+		if (!/\S+@\S+\.\S+/.test(formData.usuario_email)) {
+			validationErrors.push('Debes ingresar un correo electrónico válido.')
+		}
 
-				if (!formData.fotos.length) {
-					validationErrors.push('Debes subir al menos una foto de la mascota.')
-				}
+		if (!formData.fotos.length) {
+			validationErrors.push('Debes subir al menos una foto de la mascota.')
+		}
 
-				// Si hay errores, actualizamos el estado de los errores y detenemos el envío
-				if (validationErrors.length > 0) {
-					setErrors(validationErrors)
-					return
-				}
+		// Si hay errores, actualizamos el estado de los errores y detenemos el envío
+		if (validationErrors.length > 0) {
+			setErrors(validationErrors)
+			return
+		}
 		try {
 			const response = await axios.post('http://localhost:3000/api/v1/publications/save', formData)
 			console.log(response)
@@ -152,7 +153,7 @@ export default function Publishfound() {
 
 	const handleClear = () => {
 		setImages([])
-			setErrors([])
+		setErrors([])
 		setFormData({
 			publica_duenio: false,
 			rescatada: false,

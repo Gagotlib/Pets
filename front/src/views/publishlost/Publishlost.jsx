@@ -54,30 +54,29 @@ export default function Publishlost() {
 			.catch((error) => console.error('Error al convertir imágenes:', error))
 	}
 
+	const handleChange = (e) => {
+		const { name, value } = e.target
 
-const handleChange = (e) => {
-	const { name, value } = e.target
+		if (name === 'mascota_nombre' || name === 'usuario_nombre' || name === 'zona') {
+			setFormData((prevFormData) => ({
+				...prevFormData,
+				[name]: capitalizeWords(value) // Aplica la función de formato
+			}))
+		}
 
-	if (name === 'mascota_nombre' || name === 'usuario_nombre' || name === 'zona') {
-		setFormData((prevFormData) => ({
-			...prevFormData,
-			[name]: capitalizeWords(value) // Aplica la función de formato
-		}))
+		if (name === 'mascota_colores') {
+			const formattedColors = capitalizeWords(value) // Aplica la función de formato
+			setFormData((prevFormData) => ({
+				...prevFormData,
+				[name]: formattedColors.split(',').map((color) => color.trim()) // Guarda como array
+			}))
+		} else {
+			setFormData((prevFormData) => ({
+				...prevFormData,
+				[name]: value
+			}))
+		}
 	}
-	
-	if (name === 'mascota_colores') {
-		const formattedColors = capitalizeWords(value) // Aplica la función de formato
-		setFormData((prevFormData) => ({
-			...prevFormData,
-			[name]: formattedColors.split(',').map((color) => color.trim()) // Guarda como array
-		}))
-	} else {
-		setFormData((prevFormData) => ({
-			...prevFormData,
-			[name]: value
-		}))
-	}
-}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
@@ -86,6 +85,8 @@ const handleChange = (e) => {
 		formData.mascota_nombre = capitalizeFirstLetter(formData.mascota_nombre)
 		formData.usuario_nombre = capitalizeFirstLetter(formData.usuario_nombre)
 		formData.zona = capitalizeFirstLetter(formData.zona)
+		formData.mascota_edad = parseInt(formData.mascota_edad)
+		formData.usuario_telefono = parseInt(formData.usuario_telefono)
 
 		// Validaciones
 		const validationErrors = []
@@ -142,8 +143,7 @@ const handleChange = (e) => {
 			return
 		}
 
-		console.log('enviando formulario', formData);
-		
+		console.log('enviando formulario', formData)
 
 		try {
 			const response = await axios.post('http://localhost:3000/api/v1/publications/save', formData)
@@ -163,9 +163,7 @@ const handleChange = (e) => {
 				willClose: () => {
 					navigate('/')
 				}
-
 			})
-
 		} catch (error) {
 			console.log(error)
 		}

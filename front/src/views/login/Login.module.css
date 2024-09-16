@@ -59,7 +59,11 @@
 
 .form {
 	max-width: 24rem;
-	margin: 0 auto;
+	margin: 0;
+	width: 100%;
+	@media screen and (max-width: 768px) {
+		width: 85%;		
+	}
 }
 
 .inputGroup {
@@ -87,9 +91,7 @@
 	width: 100%;
 	padding: 1rem;
 	font-size: 1rem;
-	@media screen and (max-width: 768px) {
-		width: 85%;
-	}
+
 }
 
 .buttonContainer {

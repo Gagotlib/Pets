@@ -53,12 +53,12 @@ li a:hover {
 	border-top: 01px solid;
 	padding-top: 1rem;
 	font-size: smaller;
-
+align-items: center;
 	@media screen and (max-width: 768px) {
 		justify-content: space-around;
 		width: 100%;
 		gap: 1rem;
-        text-align: center;
+    text-align: center;
 	}
 }
 .logo {
@@ -68,4 +68,45 @@ li a:hover {
 	margin: 0%;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
+}
+
+.socialicons {
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	justify-items: center;
+	width: 100%;
+}
+
+.sociallink {
+  color: var(--color-secundario); /* Equivalente a text-gray-500 */
+  margin-left: 1.25rem; /* Equivalente a ms-5 */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.sociallink:hover {
+  color: #111827; /* Equivalente a hover:text-gray-900 */
+}
+
+.sociallink svg {
+  width: 1rem; /* Equivalente a w-4 */
+  height: 1rem; /* Equivalente a h-4 */
+}
+
+.sronly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.icon {
+  width: 1rem;   /* Tamaño de ancho, puedes ajustar según lo necesites */
+  height: 1rem;  /* Tamaño de alto */
+  fill: var(--color-secundario); /* Hace que el color de relleno del icono sea el mismo que el del texto */
+  transition: fill 0.3s ease; /* Añade una transición suave cuando el color cambia */
 }

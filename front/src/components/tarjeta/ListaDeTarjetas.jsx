@@ -1,22 +1,37 @@
-import Tarjeta from './Tarjeta';
-import styles from './Tarjeta.module.css';
+import { Link } from 'react-router-dom'
+import Tarjeta from './Tarjeta'
+import styles from './Tarjeta.module.css'
 
 const ListaDeTarjetas = ({ publicacions }) => {
-  return (
-		<div className={styles.lista}>
-			{publicacions.map((publicacion, index) => (
-				<Tarjeta
-					key={index}
-					fotos={publicacion.fotos}
-					nombre={publicacion.mascota_nombre}
-					direccion={publicacion.zona}
-					genero={publicacion.mascota_especie}
-					edad={publicacion.mascota_edad}
-					id={publicacion.id}
-				/>
-			))}
+	const publicacionesLimitadas = publicacions.slice(0, 5)
+
+	return (
+		<div className={styles.listaDeTarjetas}>
+			<div className={styles.lista}>
+				{publicacionesLimitadas.map((publicacion, index) => (
+					<Tarjeta key={index} publicacion={publicacion} />
+				))}
+			</div>
+			{publicacions[0].publica_duenio === true && publicacions[0].rescatada === false && (
+				<Link to='/lostposts' className={styles.verMasBotton}>
+					{' '}
+					Ver mas publicaciones{' '}
+				</Link>
+			)}
+			{publicacions[0].publica_duenio === false && publicacions[0].rescatada === false && (
+				<Link to='/foundposts' className={styles.verMasBotton}>
+					{' '}
+					Ver mas publicaciones
+				</Link>
+			)}
+			{publicacions[0].rescatada === true && (
+				<Link to='/happyendings' className={styles.verMasBotton}>
+					{' '}
+					Ver mas publicaciones
+				</Link>
+			)}
 		</div>
 	)
-};
+}
 
-export default ListaDeTarjetas;
+export default ListaDeTarjetas
