@@ -5,6 +5,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { capitalizeFirstLetter, capitalizeWords } from '../../helpers/validations'
+import { BASE_URL } from '../../envs'
 
 export default function Publishfound() {
 	const navigate = useNavigate()
@@ -128,7 +129,7 @@ export default function Publishfound() {
 			return
 		}
 		try {
-			const response = await axios.post('http://localhost:3000/api/v1/publications/save', formData)
+			const response = await axios.post(`${BASE_URL}/save`, formData)
 			console.log(response)
 			Swal.fire({
 				title: '<strong>Publicación exitosa</strong>',
