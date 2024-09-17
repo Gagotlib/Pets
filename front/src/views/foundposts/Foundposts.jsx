@@ -12,20 +12,23 @@ export default function Foundposts() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(`${BASE_URL}/allOwnerNonPublishes`)
-			console.log(response.data)
-			setPublicaciones(response.data)
+			const publicacionesOrdenadas = response.data.sort((a, b) => {
+				return new Date(b.fecha) - new Date(a.fecha) // Orden descendente, más recientes primero
+			})
+
+			setPublicaciones(publicacionesOrdenadas)
 			setIsLoading(false)
 		}
 		fetchData()
 	}, [])
 
-		return (
-			<div className={styles.container}>
-				<h2 className={styles.title}>Ayuda a estas mascotas a encontrar sus dueños!</h2>
-				<div className={styles.cardsContainer}>
-					{isLoading && <Spiner />}
-					{publicaciones && publicaciones.map((publicacion, index) => <Tarjeta key={index} publicacion={publicacion} />)}
-				</div>
+	return (
+		<div className={styles.container}>
+			<h2 className={styles.title}>Ayuda a estas mascotas a encontrar sus dueños!</h2>
+			<div className={styles.cardsContainer}>
+				{isLoading && <Spiner />}
+				{publicaciones && publicaciones.map((publicacion, index) => <Tarjeta key={index} publicacion={publicacion} />)}
 			</div>
-		)
+		</div>
+	)
 }

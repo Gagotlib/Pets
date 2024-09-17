@@ -1,5 +1,5 @@
 import axios from 'axios'
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BASE_URL } from '../../envs'
 import styles from './Lostposts.module.css'
 import Tarjeta from '../../components/tarjeta/Tarjeta'
@@ -12,8 +12,11 @@ export default function Lostposts() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(`${BASE_URL}/allOwnerPublishes`)
-			console.log(response.data)
-			setPublicaciones(response.data)
+			const publicacionesOrdenadas = response.data.sort((a, b) => {
+				return new Date(b.fecha) - new Date(a.fecha) // Orden descendente, más recientes primero
+			})
+
+			setPublicaciones(publicacionesOrdenadas)
 			setIsLoading(false)
 		}
 		fetchData()
@@ -24,7 +27,8 @@ export default function Lostposts() {
 			<h2 className={styles.title}>Ayuda a los dueños a encontrar sus mascotas!</h2>
 			<div className={styles.cardsContainer}>
 				{isLoading && <Spiner />}
-				{publicaciones && publicaciones.map((publicacion, index) => <Tarjeta key={index} publicacion={publicacion} />)}</div>
+				{publicaciones && publicaciones.map((publicacion, index) => <Tarjeta key={index} publicacion={publicacion} />)}
+			</div>
 		</div>
 	)
 }

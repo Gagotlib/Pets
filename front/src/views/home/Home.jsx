@@ -12,16 +12,26 @@ function Home() {
 	const [publicaciones, setPublicaciones] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 
-	useEffect(() => {
-		const fetchData = async () => {
+useEffect(() => {
+	const fetchData = async () => {
+		try {
 			const response = await axios.get(`${BASE_URL}/all`)
 			// console.log(response.data)
-			setPublicaciones(response.data)
-			setIsLoading(false)
-		}
 
-		fetchData()
-	}, [])
+			// Ordenar por fecha de publicación (asegurándose de que las fechas estén en un formato de fecha válido)
+			const publicacionesOrdenadas = response.data.sort((a, b) => {
+				return new Date(b.fecha) - new Date(a.fecha) // Orden descendente, más recientes primero
+			})
+
+			setPublicaciones(publicacionesOrdenadas)
+			setIsLoading(false)
+		} catch (error) {
+			console.error('Error fetching data:', error)
+		}
+	}
+
+	fetchData()
+}, [])
 
 	// Estado para manejar la categoria seleccionada
 	const [filtro, setFiltro] = useState('dueños')
@@ -44,10 +54,10 @@ function Home() {
 		<main className={styles.main}>
 			<div className={styles.container}>
 				<h1 className={styles.title}>Bienvenido a Pet Rescue!</h1>
-				<p className={styles.subtitle}>¡Tu comunidad para reunir mascotas perdidas y encontradas! </p>
+				<p className={styles.subtitle}>¡Somos la comunidad que trabaja unida para reunir a cada mascota con su familia! </p>
 				<p className={styles.text}>
-					Aquí entendemos lo importante que es para ti encontrar a tu compañero peludo. Por eso, hemos creado una plataforma simple y efectiva para ayudarte a reunirte con tu mascota o para que puedas
-					ayudar a otros a encontrar la suya.
+					En Pet Rescue, te ofrecemos una plataforma fácil de usar diseñada para ayudarte a encontrar a tu mascota y ayudar a otros en su búsqueda. Cada mascota merece regresar a su hogar. ¡Juntos
+					podemos hacerlo posible! Comienza ahora y sé parte de un nuevo reencuentro.
 				</p>
 				<br />
 				<div className={styles.buttonsContainer}>
