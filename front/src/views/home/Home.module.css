@@ -173,6 +173,7 @@ h2 {
 	align-items: center;
 	background-color: #dfdfdf;
 	padding-top: 1rem;
+	height: 700px;
 }
 .tarjetasContainer2 {
 	/* padding: 0.5rem 1rem; */
@@ -180,4 +181,5 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: 700px;
 }

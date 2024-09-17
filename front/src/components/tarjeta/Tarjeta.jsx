@@ -2,7 +2,7 @@ import styles from './Tarjeta.module.css'
 import { Link } from 'react-router-dom'
 
 const Tarjeta = ({ publicacion }) => {
-	console.log(publicacion)
+	// console.log(publicacion)
 
 	return (
 		<Link to={`/detail/${publicacion.id}`} className={styles.tarjeta}>

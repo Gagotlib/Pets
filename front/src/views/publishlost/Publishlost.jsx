@@ -6,9 +6,11 @@ import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { capitalizeFirstLetter, capitalizeWords } from '../../helpers/validations'
 import { BASE_URL } from '../../envs'
+import Spiner from '../../components/spiner/Spiner'
 
 export default function Publishlost() {
 	const navigate = useNavigate()
+	const [isLoading, setIsLoading] = useState(false)
 	const [images, setImages] = useState([])
 	const [errors, setErrors] = useState([])
 	const [formData, setFormData] = useState({
@@ -81,6 +83,7 @@ export default function Publishlost() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
+		setIsLoading(true)
 		setErrors([])
 		// Formatear los campos de texto
 		formData.mascota_nombre = capitalizeFirstLetter(formData.mascota_nombre)
@@ -149,6 +152,7 @@ export default function Publishlost() {
 		try {
 			const response = await axios.post(`${BASE_URL}/save`, formData)
 			console.log(response)
+			setIsLoading(false)
 			Swal.fire({
 				title: '<strong>Publicación exitosa</strong>',
 				icon: 'info',
@@ -167,6 +171,7 @@ export default function Publishlost() {
 			})
 		} catch (error) {
 			console.log(error)
+			setIsLoading(false)
 		}
 	}
 
@@ -274,10 +279,10 @@ export default function Publishlost() {
 
 					<div className={styles.buttonContainer}>
 						<button className={styles.buttonClear} onClick={handleClear}>
-							Borrar todo
+							{isLoading ? <Spiner /> : 'Limpiar formulario'}
 						</button>
 						<button type='submit' className={styles.buttonSend}>
-							Publicar
+							{isLoading ? <Spiner /> : 'Publicar'}
 						</button>
 					</div>
 				</form>

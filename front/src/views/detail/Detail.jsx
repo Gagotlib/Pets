@@ -17,7 +17,7 @@ const formatDate = (dateString) => {
 }
 
 const Detail = () => {
-	// Petición al backend de una publicación
+
 	const { id } = useParams()
 	const [publicacion, setPublicacion] = useState(null)
 
@@ -83,6 +83,9 @@ const Detail = () => {
 								)}
 							</>
 							{publicacion.publica_duenio ? <p>Se perdio el: {fechaFormateada}</p> : <p>Fue visto el: {fechaFormateada} </p>}
+							
+							{publicacion.publica_duenio && <p>Se perdió en zona: {publicacion.zona}</p>}
+
 							<p>Raza: {publicacion.mascota_raza}</p>
 							<p>Tamaño: {publicacion.mascota_tamanio}</p>
 							<p>

@@ -15,7 +15,7 @@ function Home() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(`${BASE_URL}/all`)
-			console.log(response.data)
+			// console.log(response.data)
 			setPublicaciones(response.data)
 			setIsLoading(false)
 		}
